@@ -1,6 +1,6 @@
-# 🚆 Large Scale Transport Delay System
+# 🚆 Transport Network Analysis & Optimization System
 
-## 📌 Overview
+## Overview
 
 This project analyzes public transport systems using GTFS data and builds toward a **multi-modal journey simulation system**.
 
@@ -9,58 +9,69 @@ The analysis is conducted at two levels:
 * 🇩🇪 **Germany (Macro Level)** → Rail network structure and performance
 * 🏙️ **Berlin (Micro Level)** → Urban multi-modal transport dynamics
 
----
-
-## 🎯 Objectives
-
-* Understand transport network structure and efficiency
-* Analyze travel times, service frequency, and connectivity
-* Identify key routes, corridors, and transport hubs
-* Simulate real-world journeys across multiple transport modes
-* Evaluate travel experience using time, transfers, and reliability
+Berlin is used as a detailed case study within a broader transport system analysis.
 
 ---
 
-## 📊 Key Analysis
+## Objectives
 
-### Germany (Rail Network)
-
-* Travel time distribution across the network
-* Service type hierarchy (RB, RE, ICE, IC)
-* High-frequency corridors
-* Network connectivity (major stations)
-
-### Berlin (Urban Transport)
-
-* Mode-wise service distribution (Bus, S-Bahn, U-Bahn)
-* Segment-level travel performance
-* Network density and structure
-* Station centrality and connectivity
-* Operational intensity of routes
+- Analyze transport network structure and efficiency  
+- Evaluate travel time patterns, service frequency, and connectivity  
+- Identify key routes, corridors, and transport hubs  
+- Simulate multi-modal journeys across transport modes 
+- Assess travel performance using time, transfers, and reliability  
 
 ---
 
-## ⚠️ Important Note
+## Key Analysis
 
-This project uses **trip frequency as a proxy for service intensity**, not actual passenger demand.
+### Germany — Rail Network
+
+- Travel time distribution across the network  
+- Service hierarchy (RB, RE, ICE, IC)  
+- High-frequency corridors  
+- Network connectivity and major stations  
+
+### Berlin — Urban Transport
+
+- Mode-wise distribution (Bus, S-Bahn, U-Bahn)  
+- Segment-level travel performance  
+- Network density and structure  
+- Station centrality and connectivity  
+- Route-level operational intensity 
 
 ---
 
-## 🧠 Key Insights
+## Dashboard
 
-* Transport networks exhibit a **hybrid structure** combining local and long-distance services
-* Urban systems are **high-frequency and multi-modal**
-* Service frequency heavily influences perceived “busyness” of routes
-* Certain stations act as **critical network hubs**
+Interactive Tableau dashboard:  
+https://public.tableau.com/views/BerlinPublicTransportNetworkAnalysis/Dashboard
+
+The dashboard highlights:
+
+- Travel time distribution  
+- Demand vs travel time relationships  
+- High-demand routes and congestion patterns  
+- Mode-wise performance differences  
 
 ---
 
-## 🛠️ Tech Stack
+## Key Insights
 
-* Python
-* Pandas & NumPy
-* Seaborn (Visualization)
-* GTFS Data
+- Travel times are heavily skewed toward short segments, with a long tail of slower connections  
+- High-demand routes tend to exhibit longer travel times, indicating congestion hotspots  
+- S-Bahn routes show higher average travel times compared to U-Bahn and Bus  
+- Certain stations function as critical network hubs  
+
+---
+
+## Tech Stack
+
+- Python (Pandas, NumPy)  
+- NetworkX (graph modeling)  
+- SQL  
+- Tableau (visualization)  
+- GTFS data 
 
 ---
 
@@ -68,47 +79,60 @@ This project uses **trip frequency as a proxy for service intensity**, not actua
 
 ```
 data/
-  └── processed/
-      ├── germany/
-      └── berlin/
+├── raw/
+├── processed/
+│ ├── germany/
+│ └── berlin/
+├── bi/
 
 notebooks/
-  ├── germany_analysis.ipynb
-  └── berlin_analysis.ipynb
+├── germany/
+├── berlin/
+├── simulation/
 
-src/  (upcoming simulation engine)
+src/
+├── simulation/
+├── data/
+├── features/
+
+dashboard/
+└── berlin_transport_dashboard.twbx
 ```
 
 ---
 
-## 🚀 Next Phase: Simulation Engine
+---
 
-The next step is to build a **multi-modal journey simulation system** that evaluates:
+## Simulation Engine
 
-* ⏱ Total travel time
-* 🔁 Number of transfers
-* ⏳ Waiting time
-* ⚠ Delay risk
-* 🔗 Connection smoothness
-* 🧭 Alternative route options
+The project includes a simulation framework to evaluate journeys based on:
+
+- Total travel time  
+- Number of transfers  
+- Delay impact  
+- Route alternatives  
+
+This forms the basis for future optimization and predictive modeling.
 
 ---
 
-## 🔮 Future Work
+## Future Work
 
-* Multi-criteria route optimization
-* Delay prediction models
-* Real-time transport simulation
-* Integration with visualization dashboards (Power BI)
-
----
-
-## 👤 Author
-
-Nitin Singh
-MSc Data Analytics
-Berlin School of Business & Innovation
+- Machine learning for delay prediction  
+- Multi-criteria route optimization  
+- Real-time simulation and dynamic routing  
+- Expansion to larger transport networks  
 
 ---
 
-## ⭐ If you find this useful, consider starring the repo!
+## Author
+
+Nitin Singh  
+MSc Data Analytics  
+Berlin School of Business & Innovation  
+
+---
+
+## Notes
+
+Trip frequency is used as a proxy for service intensity and not actual passenger demand.
