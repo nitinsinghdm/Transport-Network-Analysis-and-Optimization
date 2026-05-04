@@ -2,6 +2,8 @@
 
 ## Overview
 
+![Dashboard](outputs/images/dashboard.png)
+
 This project analyzes public transport systems using GTFS data and builds toward a **multi-modal journey simulation system**.
 
 The analysis is conducted at two levels:
@@ -56,6 +58,37 @@ The dashboard highlights:
 
 ---
 
+## Visual Analysis
+
+### Travel Time Analysis
+
+![Travel Time Distribution](outputs/images/distribution_travel_times_germany.png)
+![Travel Time Variability](outputs/images/travel_time_variability_germany.png)
+
+---
+
+### Demand & Route Analysis
+
+![Top Routes](outputs/images/top_10_busiest_routes_berlin.png)
+![Route Ranking](outputs/images/route_ranking.png)
+![Passenger Demand](outputs/images/passenger_demand_distribution.png)
+
+---
+
+### Network Structure
+
+![Network Composition](outputs/images/network_composition_mode_berlin.png)
+![Important Stations](outputs/images/most_important_stations.png)
+
+---
+
+### Delay & Reliability
+
+![Delay Risk](outputs/images/delay_risk_by_route.png)
+![Transfers](outputs/images/transfers_by_route.png)
+
+---
+
 ## Key Insights
 
 - Travel times are heavily skewed toward short segments, with a long tail of slower connections  
@@ -97,9 +130,11 @@ src/
 
 dashboard/
 └── berlin_transport_dashboard.twbx
-```
 
----
+outputs/
+  ├── images/
+  └── tables/
+```
 
 ---
 
