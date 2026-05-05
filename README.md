@@ -1,102 +1,116 @@
 # 🚆 Transport Network Analysis & Optimization System
 
+End-to-end analysis and simulation of public transport networks using GTFS data, graph modeling, and interactive BI dashboards.
+
+
 ## Overview
 
-![Dashboard](outputs/images/dashboard.png)
+This project analyzes public transport systems at both macro (Germany) and micro (Berlin) levels, combining data analytics, network modeling, and visualization to uncover operational patterns and inefficiencies.
 
-This project analyzes public transport systems using GTFS data and builds toward a **multi-modal journey simulation system**.
+Berlin is used as a detailed case study within a broader transport network analysis framework.
 
-The analysis is conducted at two levels:
+## Motivation
 
-* 🇩🇪 **Germany (Macro Level)** → Rail network structure and performance
-* 🏙️ **Berlin (Micro Level)** → Urban multi-modal transport dynamics
+Urban transport networks operate as complex, interconnected systems where delays and inefficiencies can propagate across the entire network.
 
-Berlin is used as a detailed case study within a broader transport system analysis.
+This project aims to explore how data analytics, graph modeling, and simulation can be used to better understand these systems and identify opportunities for optimization.
 
----
-
-## Objectives
-
-- Analyze transport network structure and efficiency  
-- Evaluate travel time patterns, service frequency, and connectivity  
-- Identify key routes, corridors, and transport hubs  
-- Simulate multi-modal journeys across transport modes 
-- Assess travel performance using time, transfers, and reliability  
-
----
-
-## Key Analysis
-
-### Germany — Rail Network
-
-- Travel time distribution across the network  
-- Service hierarchy (RB, RE, ICE, IC)  
-- High-frequency corridors  
-- Network connectivity and major stations  
-
-### Berlin — Urban Transport
-
-- Mode-wise distribution (Bus, S-Bahn, U-Bahn)  
-- Segment-level travel performance  
-- Network density and structure  
-- Station centrality and connectivity  
-- Route-level operational intensity 
-
----
+The long-term objective is to bridge the gap between data analysis and real-world transport decision-making through scalable and interpretable models.
 
 ## Dashboard
 
 Interactive Tableau dashboard:  
 https://public.tableau.com/views/BerlinPublicTransportNetworkAnalysis/Dashboard
 
-The dashboard highlights:
+![Dashboard](outputs/images/dashboard.png)
 
-- Travel time distribution  
-- Demand vs travel time relationships  
-- High-demand routes and congestion patterns  
-- Mode-wise performance differences  
+--- 
 
----
+### Key Insights
 
-## Visual Analysis
+- Travel times are heavily skewed toward shorter trips, with a long tail of slower connections  
+- High-demand routes tend to exhibit longer travel times, indicating congestion hotspots  
+- S-Bahn routes show higher average travel times compared to U-Bahn and Bus  
+- A small number of routes account for a large share of trips, highlighting critical corridors  
+
+## How to Read the Dashboard
+
+- **Travel Time Distribution** → Overall network efficiency  
+- **Travel Time vs Demand** → Congestion patterns  
+- **Top Routes** → High-impact corridors  
+- **Mode Performance** → System-level differences  
+
+
+## Visual Analysis (Python)
 
 ### Travel Time Analysis
 
-![Travel Time Distribution](outputs/images/distribution_travel_times_germany.png)
-![Travel Time Variability](outputs/images/travel_time_variability_germany.png)
+![Travel Time Distribution](outputs/images/travel_time_distribution_germany.png)
+
+Travel times are highly skewed toward shorter durations, with a small proportion of slower connections.
+
+![Travel Time Variability](outputs/images/travel_time_variability_routes_germany.png)
+
+Certain routes show high variability, indicating inconsistent service reliability.
 
 ---
 
 ### Demand & Route Analysis
 
-![Top Routes](outputs/images/top_10_busiest_routes_berlin.png)
-![Route Ranking](outputs/images/route_ranking.png)
-![Passenger Demand](outputs/images/passenger_demand_distribution.png)
+![Top Routes](outputs/images/top_routes_berlin.png)
+
+A small number of routes carry a disproportionately high number of trips.
+
+![Passenger Demand](outputs/images/passenger_demand_modes_berlin.png)
+
+Demand varies across transport modes, reflecting their different roles in the network.
 
 ---
 
 ### Network Structure
 
 ![Network Composition](outputs/images/network_composition_mode_berlin.png)
-![Important Stations](outputs/images/most_important_stations.png)
+
+The network is multi-modal, with varying contributions from each transport system.
+
+![Important Stations](outputs/images/most_important_stations_berlin.png)
+
+Key stations act as central hubs within the network.
 
 ---
 
 ### Delay & Reliability
 
 ![Delay Risk](outputs/images/delay_risk_by_route.png)
-![Transfers](outputs/images/transfers_by_route.png)
+
+Certain routes consistently show higher delay risk, indicating bottlenecks.
 
 ---
 
-## Key Insights
+## Cross-Analysis: Python vs Tableau
 
-- Travel times are heavily skewed toward short segments, with a long tail of slower connections  
-- High-demand routes tend to exhibit longer travel times, indicating congestion hotspots  
-- S-Bahn routes show higher average travel times compared to U-Bahn and Bus  
-- Certain stations function as critical network hubs  
+The analysis was conducted using Python for data processing and modeling, and Tableau for interactive visualization.
 
----
+- Travel time distributions observed in Python align with dashboard insights  
+- High-demand routes identified in Python match those highlighted in Tableau  
+- Mode-wise performance trends are consistent across both tools  
+- Tableau enhances interpretability through interactive exploration  
+
+## Simulation Engine
+
+A graph-based simulation system evaluates journeys across the transport network.
+
+Key components:
+- Graph construction using NetworkX  
+- Shortest path routing (Dijkstra)  
+- Delay modeling and propagation  
+- Multi-route evaluation  
+
+Evaluation metrics:
+- Total travel time  
+- Number of transfers  
+- Delay impact  
+- Route efficiency  
 
 ## Tech Stack
 
@@ -104,11 +118,9 @@ The dashboard highlights:
 - NetworkX (graph modeling)  
 - SQL  
 - Tableau (visualization)  
-- GTFS data 
+- GTFS data  
 
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 data/
@@ -135,39 +147,16 @@ outputs/
   ├── images/
   └── tables/
 ```
-
 ---
 
-## Simulation Engine
+## Key Takeaways
 
-The project includes a simulation framework to evaluate journeys based on:
-
-- Total travel time  
-- Number of transfers  
-- Delay impact  
-- Route alternatives  
-
-This forms the basis for future optimization and predictive modeling.
-
----
-
-## Future Work
-
-- Machine learning for delay prediction  
-- Multi-criteria route optimization  
-- Real-time simulation and dynamic routing  
-- Expansion to larger transport networks  
-
----
+- Transport networks exhibit highly skewed travel time distributions  
+- Demand is concentrated in a small number of key routes  
+- Multi-modal systems show distinct performance characteristics  
+- Certain nodes act as critical connectivity hubs  
 
 ## Author
 
 Nitin Singh  
-MSc Data Analytics  
-Berlin School of Business & Innovation  
-
----
-
-## Notes
-
-Trip frequency is used as a proxy for service intensity and not actual passenger demand.
+MSc Data Analytics
